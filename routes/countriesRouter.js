@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Country = require('../models/CountryModel');
+const Country = require('../models/orszagModel');
 
 router.get('/', async (req, res) => {
     try {

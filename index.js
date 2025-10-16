@@ -6,10 +6,10 @@ const mongoose = require('mongoose');
 mongoose.set('strictQuery', true);
 mongoose.connect(dbString);
 const database = mongoose.connection;
-database.on('error', (e)=>{
+database.on('error', (e) => {
     console.log(e);
 })
-database.on('connected', ()=>{
+database.on('connected', () => {
     console.log('Database connected!');
 })
 
@@ -21,6 +21,6 @@ app.use(express.json());
 app.use('/api/revolutions', revolutionsRouter);
 app.use('/api/countries', countriesRouter);
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}...`);
 })
