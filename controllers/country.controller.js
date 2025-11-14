@@ -22,8 +22,8 @@ exports.getCountryById = (req, res, next) => {
 
 exports.createCountry = (req, res, next) => {
     try {
-        const newData = Country.save();
-        res.status(201).json(newData);
+        const newCountry = Country.create(req.body);
+        res.status(201).json(newCountry);
     } catch (error) {
         res.status(400).json({ message: error.message });
     }

@@ -69,7 +69,7 @@ describe('RevolutionController.createRevolution', () => {
     })
     it('should return json response', () => {
         RevolutionModel.create.mockReturnValue(newRevolution);
-        RevolutionsController.getAllRevolutions(req, res);
+        RevolutionsController.createRevolution(req, res);
         expect(res._getJSONData()).toStrictEqual(newRevolution);
     })
 })
