@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Revolution = require('../models/forradalomModel');
+const Revolution = require('../models/RevolutionModel');
 
 router.get('/', async (req, res) => {
     try {

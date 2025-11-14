@@ -1,35 +1,25 @@
 const express = require('express');
 const router = express.Router();
-const Country = require('../models/orszagModel');
+const CountryController = require('../controllers/country.controller')
 
-router.get('/', async (req, res) => {
-    try {
-        const data = await Country.find();
-        res.json(data);
-    } catch (error) {
-        res.status(500).json({ message: error.message });
-    }
+router.get('/', (req, res) => {
+    CountryController.getAllCountry(req, res)
 });
 
-router.get('/:id', async (req, res) => {
-    try {
-        const data = await Country.findById(req.params.id);
-        res.json(data);
-    } catch (error) {
-        res.status(404).json({ message: 'Country not found' });
-    }
+router.get('/:id', (req, res) => {
+    CountryController.getCountryById(req, res)
 });
 
-router.post('/', async (req, res) => {
-    const Country = new Country({
-        name: req.body.name
-    });
-    try {
-        const newData = await Country.save();
-        res.status(201).json(newData);
-    } catch (error) {
-        res.status(400).json({ message: error.message });
-    }
+router.post('/', (req, res) => {
+    CountryController.postCountry(req, res)
+});
+
+router.put('/:id', (req, res) => {
+    CountryController.updateCountry(req, res)
+});
+
+router.delete('/:id', (req, res) => {
+    CountryController.deleteCountry(req, res)
 });
 
 module.exports = router;
