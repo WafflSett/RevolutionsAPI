@@ -41,7 +41,7 @@ exports.updateCountry = (req, res, next) => {
 exports.deleteCountry = (req, res, next) => {
     try {
         Country.findByIdAndDelete(req.params.id);
-        res.json({ message: 'Country deleted' });
+        res.status(204).json({ message: 'Country deleted' });
     } catch (error) {
         res.status(404).json({ message: error.message });
     }

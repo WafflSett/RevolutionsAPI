@@ -101,13 +101,13 @@ describe('RevolutionController.deleteRevolution', () => {
         RevolutionsController.deleteRevolution(req, res)
         expect(RevolutionModel.findByIdAndDelete).toHaveBeenCalled()
     })
-    it('should return 200 response code', () => {
+    it('should return 204 response code', () => {
         RevolutionsController.deleteRevolution(req, res)
-        expect(res.statusCode).toBe(200)
+        expect(res.statusCode).toBe(204)
     })
     it('should return json response', () => {
-        RevolutionModel.findByIdAndDelete.mockReturnValue({message: 'Revolution deleted'});
+        RevolutionModel.findByIdAndDelete.mockReturnValue({ message: 'Revolution deleted' });
         RevolutionsController.deleteRevolution(req, res);
-        expect(res._getJSONData()).toStrictEqual({message: 'Revolution deleted'});
+        expect(res._getJSONData()).toStrictEqual({ message: 'Revolution deleted' });
     })
 })

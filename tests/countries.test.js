@@ -103,9 +103,9 @@ describe('CountryController.deleteCountry', () => {
         CountryController.deleteCountry(req, res)
         expect(CountryModel.findByIdAndDelete).toHaveBeenCalled()
     })
-    it('Should return 200 response code', () => {
+    it('Should return 204 response code', () => {
         CountryController.deleteCountry(req, res)
-        expect(res.statusCode).toBe(200)
+        expect(res.statusCode).toBe(204)
     })
     it('Should return json response', () => {
         CountryModel.findByIdAndDelete.mockReturnValue({ message: 'Country deleted' });
